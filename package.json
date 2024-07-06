@@ -1,0 +1,21 @@
+{
+  "name": "jsx-build",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.config.mjs && node build/main.js",
+    "serve": "node --watch build/main.js",
+    "compile": "esbuild src/main.jsx --bundle --loader:.js=jsx --outfile=build/main.js --platform=node --format=cjs --watch",
+    "start": "concurrently \"npm run compile\" \"npm run serve\""
+  },
+  "author": "Seacrest",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
